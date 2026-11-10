@@ -1,0 +1,4 @@
+matplotlib>=3.7
+streamlit>=1.30
+pytest>=7.0
+networkx>=3.0   # only used in tests to cross-check our own algorithms

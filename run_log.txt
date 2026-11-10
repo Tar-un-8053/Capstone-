@@ -1,0 +1,36 @@
+City: 64 junctions, 103 roads
+
+== 1. Traversal ==
+BFS order (first 10): [0, 1, 8, 2, 9, 10, 3, 17, 11, 18]
+DFS order (first 10): [0, 1, 2, 3, 4, 12, 13, 5, 14, 6]
+Junctions within 3 hops of J0: 10 
+
+== 2. Shortest path (J0 -> J63) ==
+hour 03  Dijkstra       19.36 min  explored= 64  hops=12
+hour 03  A*             19.36 min  explored= 52  hops=12
+hour 03  Bellman-Ford   19.36 min  explored= 64  hops=12
+hour 08  Dijkstra       30.55 min  explored= 64  hops=13
+hour 08  A*             30.55 min  explored= 59  hops=13
+hour 08  Bellman-Ford   30.55 min  explored= 64  hops=13
+hour 12  Dijkstra       19.56 min  explored= 64  hops=12
+hour 12  A*             19.56 min  explored= 52  hops=12
+hour 12  Bellman-Ford   19.56 min  explored= 64  hops=12
+hour 17  Dijkstra       30.90 min  explored= 64  hops=13
+hour 17  A*             30.90 min  explored= 59  hops=13
+hour 17  Bellman-Ford   30.90 min  explored= 64  hops=13
+Best 30.55 min, alternative 32.99 min
+
+== 3. Road-closure what-if ==
+Closing road 14-22: 30.55 -> 31.83 min, new route [0, 1, 10, 18, 19, 27, 28, 36, 44, 45, 53, 54, 63]
+Isolating J0 -> zones: [1, 63] 
+
+== 4. Minimum spanning tree (distance) ==
+Kruskal 61.83 km | Prim 61.83 km | full network 113.82 km | saving 46%
+
+== 5. Performance benchmark ==
+{'grid': '5x5', 'V': 25, 'E': 38, 'bfs_ms': 0.012, 'dijkstra_ms': 0.081, 'astar_ms': 0.181, 'dijkstra_explored': 24, 'astar_explored': 21, 'kruskal_ms': 0.044, 'prim_ms': 0.038}
+{'grid': '8x8', 'V': 64, 'E': 103, 'bfs_ms': 0.031, 'dijkstra_ms': 0.234, 'astar_ms': 0.503, 'dijkstra_explored': 64, 'astar_explored': 59, 'kruskal_ms': 0.123, 'prim_ms': 0.108}
+{'grid': '12x12', 'V': 144, 'E': 239, 'bfs_ms': 0.07, 'dijkstra_ms': 0.554, 'astar_ms': 1.19, 'dijkstra_explored': 144, 'astar_explored': 139, 'kruskal_ms': 0.279, 'prim_ms': 0.274}
+{'grid': '16x16', 'V': 256, 'E': 430, 'bfs_ms': 0.131, 'dijkstra_ms': 1.05, 'astar_ms': 2.227, 'dijkstra_explored': 256, 'astar_explored': 255, 'kruskal_ms': 0.522, 'prim_ms': 0.487}
+{'grid': '20x20', 'V': 400, 'E': 679, 'bfs_ms': 0.264, 'dijkstra_ms': 1.651, 'astar_ms': 3.417, 'dijkstra_explored': 399, 'astar_explored': 386, 'kruskal_ms': 0.95, 'prim_ms': 0.813}
+{'grid': '25x25', 'V': 625, 'E': 1067, 'bfs_ms': 0.315, 'dijkstra_ms': 2.611, 'astar_ms': 5.748, 'dijkstra_explored': 625, 'astar_explored': 620, 'kruskal_ms': 1.449, 'prim_ms': 1.292}
